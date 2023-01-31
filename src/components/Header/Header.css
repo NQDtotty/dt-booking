@@ -1,6 +1,12 @@
 header {
     background-color: #86A3B8;
     padding: 0 10px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999px;
 }
 
 .logo {
@@ -17,9 +23,13 @@ header {
     font-style: italic;
 }
 
+.logo a:hover {
+    opacity: 60%;
+}
+
 .nav-menu {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .nav-menu li {
@@ -28,6 +38,7 @@ header {
 }
 
 .nav-menu li a {
+    text-align: center;
     color: #000;
     font-size: large;
     font-family: Candara;
@@ -51,6 +62,11 @@ header {
     font-size: medium;
     margin: 0 10px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.nav-btn .log-in:hover a {
+    opacity: 60%;
 }
 
 .nav-btn .sign-up {
