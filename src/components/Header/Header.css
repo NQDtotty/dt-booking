@@ -1,0 +1,68 @@
+header {
+    background-color: #86A3B8;
+    padding: 0 10px;
+}
+
+.logo {
+    text-align: center;
+    font-family: Candara;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo a {
+    color: #000;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-menu li {
+    height: 100%;
+    padding: 8px;
+}
+
+.nav-menu li a {
+    color: #000;
+    font-size: large;
+    font-family: Candara;
+    margin: 0 10px;
+    height: 100%;
+    opacity: 60%;
+    font-weight: 600;
+}
+
+.nav-menu li:hover a {
+    opacity: 100%;
+}
+
+.nav-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-btn li a {
+    color: #000;
+    font-size: medium;
+    margin: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-btn .sign-up {
+    background-color: #F55050;
+    border-radius: 20px;
+}
+
+.nav-btn .sign-up:hover {
+    background-color: #f71a1a;
+    border-radius: 20px;
+}
+
+.nav-btn .sign-up a {
+    color: #fff;
+}
