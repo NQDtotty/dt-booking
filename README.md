@@ -2,7 +2,7 @@
 
 This project is eTransportationSystem. An online booking system for Car Rentals / Vehicle Reservations.
 
-# Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 
