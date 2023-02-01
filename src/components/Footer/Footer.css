@@ -1,0 +1,69 @@
+footer {
+    padding: 30px 0;
+    background-color: #86A3B8;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.footer {
+    padding: 0 50px;
+}
+
+.link-color {
+    color: #000;
+}
+
+.link-color:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.short-line {
+    width: 700px;
+}
+
+.box-logo-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-footer {
+    text-align: center;
+    font-family: Candara;
+}
+
+.description-logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    opacity: 80%;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.title {
+    text-align: center;
+    font-weight: 500;
+}
+
+.cskh-phone {
+    color: #000;
+    font-weight: 900;
+    font-size: 36px;
+    font-family: SFProText;
+}
+
+.cskh-phone:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.icon-contact a {
+    margin: 0 5px;
+    color: #000;
+}
+
+.copyright {
+    text-align: center;
+    font-weight: 400;
+}
