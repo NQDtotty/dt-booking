@@ -1,6 +1,10 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './Footer.css';
+
+function getYear() {
+    var today = new Date();
+    return today.getFullYear();
+}
 
 export default function Footer() {
     return (
@@ -39,7 +43,7 @@ export default function Footer() {
             </div>
             <br />
             <div className='copyright'>
-                <p>&copy; 2023 | Bản quyền thuộc về Công ty Cổ phần Xe Khách DT-Booking | Chịu trách nhiêm nội dung: Nguyễn Anh Thoại</p>
+                <p>&copy; {getYear()} | Bản quyền thuộc về Công ty Cổ phần Xe Khách DT-Booking | Chịu trách nhiêm nội dung: Nguyễn Anh Thoại</p>
             </div>
             <hr className='short-line' />
         </footer >

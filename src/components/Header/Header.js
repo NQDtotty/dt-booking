@@ -1,5 +1,5 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
@@ -13,19 +13,19 @@ export default function Header() {
                     <nav class="navbar navbar-expand-sm p-0">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#home">Trang chủ</a>
+                                <NavLink className="nav-link" to="/">Trang chủ</NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Lịch trình</a>
+                                <NavLink className="nav-link" to="/tour">Lịch trình</NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Liên hệ</a>
+                                <NavLink className="nav-link" to="/contact">Liên hệ</NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Hóa đơn</a>
+                                <NavLink className="nav-link" to="/payment">Hóa đơn</NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Về chúng tôi</a>
+                                <NavLink className="nav-link" to="/about">Về chúng tôi</NavLink>
                             </li>
                         </ul>
 
@@ -35,10 +35,10 @@ export default function Header() {
                     <nav class="navbar navbar-expand-sm p-0">
                         <ul class="navbar-nav">
                             <li class="nav-item log-in">
-                                <a class="nav-link" href="#">Đăng nhập</a>
+                                <NavLink className="nav-link" to="/login">Đăng nhập</NavLink>
                             </li>
                             <li class="nav-item sign-up">
-                                <a class="nav-link" href="#">Đăng kí</a>
+                                <NavLink className="nav-link" to="/register">Đăng ký</NavLink>
                             </li>
                         </ul>
                     </nav>
