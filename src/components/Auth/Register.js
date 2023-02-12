@@ -1,34 +1,124 @@
 import React, { useState } from 'react';
 import './Auth.css';
+import Select from "react-select";
 
 export default function Register() {
+    const optionGender = [
+        { value: "male", label: "Nam" },
+        { value: "female", label: "Nữ" },
+    ]
+
     const [fullName, setFullName] = useState('');
-    const [phone, setPhone] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [gender, setGender] = useState('');
+    const [error, setError] = useState({});
+    const [message, setMessage] = useState('');
 
     const handleFullName = e => {
         setFullName(e.target.value);
     }
-
-    const handlePhone = e => {
-        setPhone(e.target.value);
+    const handlePhoneNumber = e => {
+        setPhoneNumber(e.target.value);
     }
-
     const handlePassword = e => {
         setPassword(e.target.value);
     }
-
-
     const handleConfirmPassword = e => {
         setConfirmPassword(e.target.value);
     }
-
     const handleEmail = e => {
         setEmail(e.target.value);
     }
+    const handleGender = e => {
+        setGender(e.value);
+    }
 
+    const validateEmail = email => {
+        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.match(mailformat)) return true;
+        else return false;
+    }
+
+    const validatePhoneNumber = num => {
+        let numFormat = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+        if (num.match(numFormat)) return true;
+        else return false;
+    }
+
+    const validateData = () => {
+        let updateError = {
+            fullNameError: "",
+            passwordError: "",
+            emailError: "",
+            phoneNumberError: "",
+            genderError: ""
+        }
+        let validated = true;
+        if (password !== confirmPassword) {
+            updateError.passwordError = "Xác nhận mật khẩu sai"
+            validated = false;
+        }
+        if (!validateEmail(email)) {
+            updateError.emailError = "Email không hợp lệ"
+            validated = false;
+        }
+        if (!validatePhoneNumber(phoneNumber)) {
+            updateError.phoneNumberError = "Số điện thoại không hợp lệ"
+            validated = false;
+        }
+        if (!fullName) {
+            updateError.fullNameError = "Họ và tên không được bỏ trống"
+        }
+        if (!phoneNumber) {
+            updateError.phoneNumberError = "Số điện thoại không được bỏ trống"
+        }
+        if (!email) {
+            updateError.emailError = "Email không được bỏ trống"
+        }
+        if (!password && !confirmPassword) {
+            updateError.passwordError = "Mật khẩu không được bỏ trống"
+        }
+        if (!gender) {
+            updateError.genderError = "Chưa chọn giới tính"
+        }
+        setError(updateError)
+        console.log("Update error", updateError)
+        return validated;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let validated = validateData();
+        if (validated) {
+            const userRegisterObj = {
+                fullname: fullName,
+                phoneNumber: phoneNumber,
+                email: email,
+                gender: gender,
+                password: password
+            }
+            const requestObj = {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userRegisterObj)
+            }
+            fetch("http://localhost:8080/users/register", requestObj)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    setMessage(data.message);
+                    if (data.status === 200) {
+
+                    }
+                });
+            // console.log(userRegisterObj);
+        } else {
+            console.log(error);
+        }
+    }
     return (
         <div>
             <div className="Auth-form-container">
@@ -46,18 +136,25 @@ export default function Register() {
                                 required
                                 onChange={handleFullName}
                             />
+                            <span className='text-danger'>{error.fullNameError}</span>
                         </div>
                         <div className="form-group mt-3">
                             <label>Số điện thoại</label>
                             <input
-                                value={phone}
+                                value={phoneNumber}
                                 name='phone'
                                 type="tel"
                                 className="form-control mt-1"
                                 placeholder="Nhập số điện thoại"
                                 required
-                                onChange={handlePhone}
+                                onChange={handlePhoneNumber}
                             />
+                            <span className='text-danger'>{error.phoneNumberError}</span>
+                        </div>
+                        <div className="form-group mt-3">
+                            <label>Giới tính</label>
+                            <Select options={optionGender} className="mt-1" onChange={handleGender} />
+                            <span className='text-danger'>{error.genderError}</span>
                         </div>
                         <div className="form-group mt-3">
                             <label>Email</label>
@@ -69,6 +166,7 @@ export default function Register() {
                                 placeholder="Nhập email"
                                 onChange={handleEmail}
                             />
+                            <span className='text-danger'>{error.emailError}</span>
                         </div>
                         <div className="form-group mt-3">
                             <label>Mật khẩu</label>
@@ -80,6 +178,7 @@ export default function Register() {
                                 placeholder="Nhập mật khẩu"
                                 required
                                 onChange={handlePassword}
+                                autoComplete="off"
                             />
                         </div>
                         <div className="form-group mt-3">
@@ -92,10 +191,15 @@ export default function Register() {
                                 placeholder="Xác nhận mật khẩu"
                                 required
                                 onChange={handleConfirmPassword}
+                                autoComplete="off"
                             />
+                            <span className='text-danger'>{error.passwordError}</span>
+                        </div>
+                        <div className="messages">
+                            <p>{message}</p>
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="" className="btn btn-primary" onClick={handleSubmit}>
                                 Đăng ký
                             </button>
                         </div>

@@ -3,15 +3,12 @@ import { NavLink } from 'react-router-dom'
 import './Auth.css';
 
 export default function Login() {
-    const [phone, setPhone] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
-    // State for checking errors
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
-
-    const handlePhone = e => {
-        setPhone(e.target.value);
+    const handlePhoneNumber = e => {
+        setPhoneNumber(e.target.value);
     }
 
     const handlePassword = e => {
@@ -19,45 +16,30 @@ export default function Login() {
     }
 
     const handleSubmit = e => {
-        // e.preventDefault();
-        // Do something
-        if (phone === "123" && password === "123") {
-            setError(false);
-            setSubmitted(true);
+        e.preventDefault();
+
+        const userObj = {
+            phoneNumber: phoneNumber,
+            password: password
         }
-        else {
-            setError(true);
-            setSubmitted(false);
+        const requestObj = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userObj)
         }
+
+        fetch("http://localhost:8080/users/login", requestObj)
+            .then(response => response.json())
+            .then(data => {
+                setMessage(data.message);
+                console.log(data.message)
+                if (data.status === 200) {
+                    localStorage.setItem("user", JSON.stringify(data.data));
+                }
+            });
+
+        console.log(JSON.parse(localStorage.getItem("user")))
     }
-
-    // Showing success message
-    const successMessage = () => {
-        console.log("Success")
-        return (
-            <div
-                className="success"
-                style={{
-                    display: submitted ? '' : 'none',
-                }}>
-                <p>Đăng nhập thành công!</p>
-            </div>
-        );
-    };
-
-    // Showing error message if error is true
-    const errorMessage = () => {
-        console.log("Error")
-        return (
-            <div
-                className="error"
-                style={{
-                    display: error ? '' : 'none',
-                }}>
-                <h1>Đăng nhập không thành công</h1>
-            </div>
-        );
-    };
 
     return (
         <div>
@@ -68,13 +50,13 @@ export default function Login() {
                         <div className="form-group mt-3">
                             <label>Nhập số điện thoại:</label>
                             <input
-                                value={phone}
-                                name='phone'
+                                value={phoneNumber}
+                                name='phoneNumber'
                                 type="number"
                                 className="form-control mt-1"
                                 placeholder="Nhập số điện thoại"
                                 required
-                                onChange={handlePhone}
+                                onChange={handlePhoneNumber}
                             />
                         </div>
                         <div className="form-group mt-3">
@@ -87,15 +69,15 @@ export default function Login() {
                                 placeholder="Nhập mật khẩu"
                                 required
                                 onChange={handlePassword}
+                                autoComplete="off"
                             />
                         </div>
                         <div className="messages">
-                            {errorMessage()}
-                            {successMessage()}
+                            <p>{message}</p>
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary" onChange={handleSubmit}>
-                                Đăng ký
+                            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+                                Đăng nhập
                             </button>
                         </div>
                         <p className="forgot-password text-right mt-2">

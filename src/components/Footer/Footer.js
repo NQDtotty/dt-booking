@@ -30,13 +30,13 @@ export default function Footer() {
                     <h2><a href='tel:19000000' className='cskh-phone'>1900 0000</a></h2>
                     <div className='icon-contact'>
                         <a href='https://www.youtube.com/'>
-                            <i class="fab fa-youtube"></i>
+                            <i className="fab fa-youtube"></i>
                         </a>
                         <a href='https://www.facebook.com'>
-                            <i class="fab fa-facebook"></i>
+                            <i className="fab fa-facebook"></i>
                         </a>
                         <a href='https://www.instagram.com'>
-                            <i class="fab fa-instagram"></i>
+                            <i className="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>

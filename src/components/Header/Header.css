@@ -2,11 +2,11 @@ header {
     background-color: #86A3B8;
     padding: 0 10px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    /* position: fixed;
     z-index: 999px;
+    top: 0;
+    left: 0; */
+    width: 100%;
     box-sizing: border-box;
 }
 
