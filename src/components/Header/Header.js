@@ -30,7 +30,6 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/about">Về chúng tôi</NavLink>
                             </li>
                         </ul>
-
                     </nav>
                 </div>
                 <div className='col-lg-3 nav-btn'>

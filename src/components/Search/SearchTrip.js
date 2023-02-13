@@ -23,7 +23,10 @@ export default function SearchTrip() {
                     </div>
                 </div>
                 <div className='row button'>
-                    <button className='btn' type='submit'>Tìm chuyến xe</button>
+                    <button className='btn' type='submit'>
+                        <i class="fas fa-search"></i>&nbsp;
+                        Tìm chuyến xe
+                    </button>
                 </div>
             </form>
         </div>

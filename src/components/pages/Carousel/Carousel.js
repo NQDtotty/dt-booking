@@ -4,7 +4,7 @@ import './Carousel.css';
 function CarouselVehicle() {
     return (
         <div className='container-fluid carousel'>
-            <Carousel>
+            <Carousel fade>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
