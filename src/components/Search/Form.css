@@ -1,4 +1,4 @@
-form {
+.form-search-trip {
     margin: 30px;
     background-color: #ffffff;
     padding: 30px;
@@ -6,7 +6,7 @@ form {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }
 
-form .button {
+.form-search-trip .button {
     float: right;
     background-color: #86A3B8;
     border-radius: 20px;
@@ -15,10 +15,10 @@ form .button {
     font-weight: bold;
 }
 
-form .button:hover {
+.form-search-trip .button:hover {
     background-color: #86a9c2;
 }
 
-form button {
+.form-search-trip button {
     font-size: large;
 }

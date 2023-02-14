@@ -1,0 +1,14 @@
+.contact {
+    padding: 20px;
+}
+
+.contact .description-title {
+    opacity: 60%;
+    font-style: italic;
+    text-align: center;
+}
+
+.contact iframe {
+    width: 100%;
+    height: 100%;
+}

@@ -4,7 +4,7 @@ import './Form.css'
 export default function SearchTrip() {
     return (
         <div className='container'>
-            <form>
+            <form className='form-search-trip'>
                 <div className='form-group row'>
                     <div className='col-sm-4'>
                         <select className='form-control'>

@@ -24,9 +24,6 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/contact">Liên hệ</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/payment">Hóa đơn</NavLink>
-                            </li>
-                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/about">Về chúng tôi</NavLink>
                             </li>
                         </ul>

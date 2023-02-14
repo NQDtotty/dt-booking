@@ -1,4 +1,4 @@
-.card {
+.special-trip .card {
     padding: 5px;
     margin: 5px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
@@ -6,27 +6,32 @@
     cursor: pointer;
 }
 
-.card:hover {
+.special-trip .card:hover {
     text-decoration: none;
     background-color: #ffffff80;
     transform: scale(1.1);
 }
 
-.container .title {
+.special-trip .container .title {
     margin: 50px 0 20px;
     text-align: center;
     text-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.5);
     font-style: italic;
 }
 
-.card h3 {
+.special-trip .card h3 {
     text-align: center;
     color: #000;
     color: #86A3B8;
 }
 
-.card p {
+.special-trip .card p {
     text-align: center;
     color: #000;
     opacity: 70%;
+}
+
+.trip-list {
+    margin: 20px;
+    padding: 20px;
 }

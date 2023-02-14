@@ -13,7 +13,7 @@ export default function SpecialTrip() {
         { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
     ]
     return (
-        <div className='container'>
+        <div className='container special-trip'>
             <div className='row'>
                 <div className='col-sm-12'>
                     <h1 className='title'>Tuyến phổ biến</h1>
