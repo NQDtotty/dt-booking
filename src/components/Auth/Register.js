@@ -71,18 +71,23 @@ export default function Register() {
         }
         if (!fullName) {
             updateError.fullNameError = "Họ và tên không được bỏ trống"
+            validated = false;
         }
         if (!phoneNumber) {
             updateError.phoneNumberError = "Số điện thoại không được bỏ trống"
+            validated = false;
         }
         if (!email) {
             updateError.emailError = "Email không được bỏ trống"
+            validated = false;
         }
         if (!password && !confirmPassword) {
             updateError.passwordError = "Mật khẩu không được bỏ trống"
+            validated = false;
         }
         if (!gender) {
             updateError.genderError = "Chưa chọn giới tính"
+            validated = false;
         }
         setError(updateError)
         console.log("Update error", updateError)
@@ -114,7 +119,6 @@ export default function Register() {
 
                     }
                 });
-            // console.log(userRegisterObj);
         } else {
             console.log(error);
         }

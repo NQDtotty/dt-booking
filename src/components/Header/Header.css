@@ -78,8 +78,12 @@ header .nav-btn .sign-up a {
 }
 
 header .nav-btn .profile {
-    background-color: #ffffffaa;
+    background-color: #ffffffc1;
     border-radius: 20px;
+}
+
+header .nav-btn .profile:hover {
+    border-radius: 20px 20px 0 0;
 }
 
 header .nav-btn .profile .profile-content {
@@ -90,6 +94,34 @@ header .nav-btn .profile .profile-content {
     cursor: pointer;
 }
 
-header .nav-btn .profile:hover .profile-content {
+header .nav-item {
+    position: relative;
+}
+
+header li:hover .extra-nav {
+    display: block;
+    border-radius: 0 0 20px 20px;
+}
+
+header .extra-nav {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    list-style-type: none;
+    width: 100%;
+    background-color: #8e8e8e;
+    border-radius: 0 0 20px 20px;
+}
+
+header .extra-nav .profile-content-item {
+    color: #fff;
+    font-size: medium;
+    margin: 0;
+    cursor: pointer;
+}
+
+header .extra-nav .profile-content-item:hover {
     opacity: 60%;
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
+    const navigate = useNavigate();
     const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")));
     const [contentProfile, setContentProfile] = useState(
         <li className='nav-item profile'>
@@ -15,6 +16,12 @@ export default function Header() {
         </li>
     );
 
+    const logout = () => {
+        sessionStorage.removeItem("user");
+        navigate("/");
+        window.location.reload(false);
+    }
+
     useEffect(() => {
         setContentProfile(getProfile(user))
     }, [user])
@@ -23,13 +30,15 @@ export default function Header() {
         if (user) {
             return (
                 <li className='nav-item profile'>
-                    <NavLink className="nav-link profile-content" to="/user">
+                    <NavLink className="nav-link profile-content">
                         <i className="far fa-user"></i>&nbsp;
                         {user.fullname}&nbsp;
                     </NavLink>
                     <ul className='extra-nav'>
-                        <li>Profile Information</li>
-                        <li>Logout</li>
+                        <NavLink className="nav-link profile-content-item" to="/user">Thông tin</NavLink>
+                        <NavLink className="nav-link profile-content-item" to="/historyTicket">Lịch sử đặt vé</NavLink>
+                        <NavLink className='nav-link profile-content-item' to="/password">Thay đổi mật khẩu</NavLink>
+                        <a className='nav-link profile-content-item .logout' onClick={logout}>Đăng xuất</a>
                     </ul>
                 </li>
             )
