@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Auth.css';
 
 export default function Login() {
+    const navigate = useNavigate();
+
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -34,11 +36,11 @@ export default function Login() {
                 setMessage(data.message);
                 console.log(data.message)
                 if (data.status === 200) {
-                    localStorage.setItem("user", JSON.stringify(data.data));
+                    sessionStorage.setItem("user", JSON.stringify(data.data));
+                    navigate("/");
+                    window.location.reload(false);
                 }
             });
-
-        console.log(JSON.parse(localStorage.getItem("user")))
     }
 
     return (
@@ -75,8 +77,8 @@ export default function Login() {
                         <div className="messages">
                             <p>{message}</p>
                         </div>
-                        <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+                        <div className="d-grid gap-2 mt-3 row col-lg-12">
+                            <button type="submit" className="btn btn-secondary" onClick={handleSubmit}>
                                 Đăng nhập
                             </button>
                         </div>

@@ -7,7 +7,7 @@ import SpecialTrip from '../TripList/SpecialTrip';
 
 export default function Home() {
     return (
-        <main className='container'>
+        <main className='container-fluid p-0'>
             <CarouselVehicle></CarouselVehicle>
             <SearchTrip></SearchTrip>
             <SpecialTrip></SpecialTrip>

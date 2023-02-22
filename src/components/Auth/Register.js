@@ -199,7 +199,7 @@ export default function Register() {
                             <p>{message}</p>
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="" className="btn btn-primary" onClick={handleSubmit}>
+                            <button type="" className="btn btn-secondary" onClick={handleSubmit}>
                                 Đăng ký
                             </button>
                         </div>

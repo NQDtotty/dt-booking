@@ -7,6 +7,8 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import TripList from './components/TripList/TripList';
 import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
+import Profile from './components/Profile/Profile'
 
 function App() {
     return (
@@ -17,8 +19,10 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path='/tour' element={<TripList />}></Route>
                     <Route path='/contact' element={<Contact />}></Route>
+                    <Route path='/about' element={<About />}></Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path='user' element={<Profile />}></Route>
                 </Routes>
             </BrowserRouter>
             <Footer></Footer>

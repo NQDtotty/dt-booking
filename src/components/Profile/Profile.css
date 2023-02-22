@@ -1,0 +1,15 @@
+.user {
+    padding: 20px;
+}
+
+.user .title {
+    text-align: center;
+    text-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+.user .description-title {
+    opacity: 60%;
+    font-style: italic;
+    text-align: center;
+}

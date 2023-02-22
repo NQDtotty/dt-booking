@@ -59,6 +59,11 @@ export default function Contact() {
                                 <textarea className='form-control' type="text" placeholder='Nhập nội dung' />
                             </div>
                         </div>
+                        <div className='row m-4'>
+                            <div className='col-12'>
+                                <button className='btn btn-secondary' type='submit'>Gửi</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div className='col-lg-6'>

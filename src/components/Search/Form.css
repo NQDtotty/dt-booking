@@ -1,24 +1,27 @@
 .form-search-trip {
-    margin: 30px;
+    margin: 70px;
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px 40px;
+    border-radius: 20px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-search-trip .form-group {
+    margin: 0;
 }
 
 .form-search-trip .button {
-    float: right;
-    background-color: #86A3B8;
-    border-radius: 20px;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    font-weight: bold;
+    border-radius: 5px;
+    padding: 0 15px;
 }
 
-.form-search-trip .button:hover {
+.form-search-trip button:hover {
     background-color: #86a9c2;
 }
 
 .form-search-trip button {
-    font-size: large;
+    font-size: medium;
+    /* background-color: #86A3B8; */
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }

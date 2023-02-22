@@ -3,7 +3,7 @@ import './Carousel.css';
 
 function CarouselVehicle() {
     return (
-        <div className='container-fluid carousel'>
+        <div className='container-fluid carousel p-0'>
             <Carousel fade>
                 <Carousel.Item>
                     <img

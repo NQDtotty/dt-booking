@@ -9,31 +9,31 @@ footer {
     padding: 0 50px;
 }
 
-.link-color {
+footer .link-color {
     color: #000;
 }
 
-.link-color:hover {
+footer .link-color:hover {
     text-decoration: none;
     color: #000;
 }
 
-.short-line {
+footer .short-line {
     width: 700px;
 }
 
-.box-logo-footer {
+footer .box-logo-footer {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-footer {
+footer .logo-footer {
     text-align: center;
     font-family: Candara;
 }
 
-.description-logo {
+footer .description-logo {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     opacity: 80%;
@@ -41,29 +41,29 @@ footer {
     font-style: italic;
 }
 
-.title {
+footer .title {
     text-align: center;
     font-weight: 500;
 }
 
-.cskh-phone {
+footer .cskh-phone {
     color: #000;
     font-weight: 900;
     font-size: 36px;
     font-family: SFProText;
 }
 
-.cskh-phone:hover {
+footer .cskh-phone:hover {
     text-decoration: none;
     color: #000;
 }
 
-.icon-contact a {
+footer .icon-contact a {
     margin: 0 5px;
     color: #000;
 }
 
-.copyright {
+footer .copyright {
     text-align: center;
     font-weight: 400;
 }
