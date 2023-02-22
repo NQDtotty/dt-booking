@@ -3,14 +3,14 @@ import './TripList.css'
 
 export default function SpecialTrip() {
     const list = [
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "20h", price: "300.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "8h", price: "300.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Đà Nẵng", distance: "980km", time: "20h", price: "395.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Nha Trang", distance: "450km", time: "9h", price: "275.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Cần Thơ", distance: "190km", time: "4h", price: "165.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Rạch Giá", distance: "235km", time: "5h", price: "1990.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Cà Mau", distance: "375km", time: "8h", price: "230.000đ" },
+        { placeFrom: "Sài Gòn", placeTo: "Châu Đốc", distance: "240km", time: "6h", price: "175.000đ" },
+        { placeFrom: "Đà Nẵng", placeTo: "Hà Nội", distance: "745km", time: "20h", price: "300.000đ" },
     ]
     return (
         <div className='container special-trip'>
