@@ -6,17 +6,14 @@ export default function Profile() {
 
     const [fullName, setFullName] = useState(user.fullname);
     const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
-    const [password, setPassword] = useState(user.password);
     const [email, setEmail] = useState(user.email);
     const [gender, setGender] = useState(user.gender);
+    const [status, setStatus] = useState("active");
     const [error, setError] = useState({});
     const [message, setMessage] = useState('');
 
     const handleFullName = e => {
         setFullName(e.target.value);
-    }
-    const handlePhoneNumber = e => {
-        setPhoneNumber(e.target.value);
     }
     const handleEmail = e => {
         setEmail(e.target.value);
@@ -41,7 +38,6 @@ export default function Profile() {
         let updateError = {
             fullNameError: "",
             emailError: "",
-            phoneNumberError: "",
             genderError: ""
         }
         let validated = true;
@@ -49,16 +45,8 @@ export default function Profile() {
             updateError.emailError = "Email không hợp lệ"
             validated = false;
         }
-        if (!validatePhoneNumber(phoneNumber)) {
-            updateError.phoneNumberError = "Số điện thoại không hợp lệ"
-            validated = false;
-        }
         if (!fullName) {
             updateError.fullNameError = "Họ và tên không được bỏ trống"
-            validated = false;
-        }
-        if (!phoneNumber) {
-            updateError.phoneNumberError = "Số điện thoại không được bỏ trống"
             validated = false;
         }
         if (!email) {
@@ -79,7 +67,28 @@ export default function Profile() {
         let validated = validateData();
         if (validated) {
             // Call API Update data user
-            console.log("Gọi API")
+            const useObj = {
+                fullname: fullName,
+                gender: gender,
+                phoneNumber: phoneNumber,
+                email: email,
+                status: status
+            }
+            console.log(useObj)
+            const reqObj = {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(useObj)
+            }
+            fetch("http://localhost:8080/users/updateUser", reqObj)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 200) {
+                        setMessage(data.message);
+                        alert(data.message);
+                        sessionStorage.setItem("user", JSON.stringify(useObj));
+                    }
+                });
         }
         else {
             console.log("Lỗi quá trời")
@@ -112,8 +121,7 @@ export default function Profile() {
                                 <label>Số điện thoại:</label>
                             </div>
                             <div className='col-8'>
-                                <input className='form-control' type="tel" value={phoneNumber} onChange={handlePhoneNumber} />
-                                <span className='text-danger'>{error.phoneNumberError}</span>
+                                <input readOnly className='form-control' type="tel" value={phoneNumber} />
                             </div>
                         </div>
                         <div className='row m-4'>

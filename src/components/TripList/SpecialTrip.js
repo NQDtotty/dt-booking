@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './TripList.css'
 
 export default function SpecialTrip() {
-    const list = [
-        { placeFrom: "Sài Gòn", placeTo: "Đà Lạt", distance: "310km", time: "8h", price: "300.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Đà Nẵng", distance: "980km", time: "20h", price: "395.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Nha Trang", distance: "450km", time: "9h", price: "275.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Cần Thơ", distance: "190km", time: "4h", price: "165.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Rạch Giá", distance: "235km", time: "5h", price: "1990.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Cà Mau", distance: "375km", time: "8h", price: "230.000đ" },
-        { placeFrom: "Sài Gòn", placeTo: "Châu Đốc", distance: "240km", time: "6h", price: "175.000đ" },
-        { placeFrom: "Đà Nẵng", placeTo: "Hà Nội", distance: "745km", time: "20h", price: "300.000đ" },
-    ]
+    const [list, setList] = useState([{ name: "default" }]);
+
+    useEffect(() => {
+        const requestObj = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+        }
+
+        fetch("http://localhost:8080/route/getAllRoutes", requestObj)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setList(data);
+                console.log(list)
+            })
+    }, [])
+
     return (
         <div className='container special-trip'>
             <div className='row'>
@@ -20,12 +27,12 @@ export default function SpecialTrip() {
                 </div>
             </div>
             <div className='row'>
-                {list.map((trip, index) => (
+                {list?.map((trip, index) => (
                     <div className='col-lg-6 col-12' key={index}>
                         <a className='card'>
                             <div className='row'>
                                 <div className='col-12'>
-                                    <h3>{trip.placeFrom} - {trip.placeTo}</h3>
+                                    <h3>{trip.from} - {trip.arrive}</h3>
                                 </div>
                             </div>
                             <div className='row'>
@@ -38,13 +45,13 @@ export default function SpecialTrip() {
                                 <div className='col-4'>
                                     <p>
                                         <i className="fas fa-clock"></i>&nbsp;
-                                        {trip.time}
+                                        {trip.travelTime}
                                     </p>
                                 </div>
                                 <div className='col-4'>
                                     <p className='price'>
                                         <i className="fas fa-money-bill-wave-alt"></i>&nbsp;
-                                        {trip.price}
+                                        {trip.fare}
                                     </p>
                                 </div>
                             </div>
