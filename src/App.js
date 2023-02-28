@@ -11,6 +11,8 @@ import About from './pages/About/About';
 import Profile from './components/Profile/Profile'
 import HistoryTicket from './components/Ticket/HistoryTicket'
 import ChangePassword from './components/Profile/ChangePassword';
+import BuyTicket from './pages/BuyTicket/BuyTicket';
+import Success from './pages/BuyTicket/Success';
 
 function App() {
     return (
@@ -27,6 +29,8 @@ function App() {
                     <Route path='/user' element={<Profile />}></Route>
                     <Route path='/historyTicket' element={<HistoryTicket />}></Route>
                     <Route path='/password' element={<ChangePassword />}></Route>
+                    <Route path='/buyTicket' element={<BuyTicket />}></Route>
+                    <Route path='/buyTicketSuccess' element={<Success />}></Route>
                 </Routes>
             </BrowserRouter>
             <Footer></Footer>

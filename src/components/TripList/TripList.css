@@ -3,18 +3,25 @@
 }
 
 .special-trip .card {
-    padding: 5px;
+    /* padding: 5px; */
     margin: 5px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
+    transition: transform 440ms ease-in-out;
 }
 
 .special-trip .card:hover {
     text-decoration: none;
     background-color: #ffffff80;
     transform: scale(1.1);
+}
+
+.special-trip .img-trip {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
 }
 
 .special-trip .title {

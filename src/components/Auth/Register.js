@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Auth.css';
 import Select from "react-select";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+    const navigate = useNavigate();
     const optionGender = [
         { value: "male", label: "Nam" },
         { value: "female", label: "Nữ" },
@@ -116,7 +118,8 @@ export default function Register() {
                     console.log(data)
                     setMessage(data.message);
                     if (data.status === 200) {
-
+                        alert(data.message);
+                        navigate("/login");
                     }
                 });
         } else {

@@ -109,19 +109,19 @@ export default function Profile() {
                     <form className='form-profile'>
                         <div className='row m-4'>
                             <div className='col-4'>
+                                <label>Số điện thoại:</label>
+                            </div>
+                            <div className='col-8'>
+                                <input readOnly className='form-control' type="tel" value={phoneNumber} />
+                            </div>
+                        </div>
+                        <div className='row m-4'>
+                            <div className='col-4'>
                                 <label>Họ và tên:</label>
                             </div>
                             <div className='col-8'>
                                 <input className='form-control' type="text" value={fullName} onChange={handleFullName} />
                                 <span className='text-danger'>{error.fullNameError}</span>
-                            </div>
-                        </div>
-                        <div className='row m-4'>
-                            <div className='col-4'>
-                                <label>Số điện thoại:</label>
-                            </div>
-                            <div className='col-8'>
-                                <input readOnly className='form-control' type="tel" value={phoneNumber} />
                             </div>
                         </div>
                         <div className='row m-4'>
