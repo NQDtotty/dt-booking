@@ -13,28 +13,36 @@ import HistoryTicket from './components/Ticket/HistoryTicket'
 import ChangePassword from './components/Profile/ChangePassword';
 import BuyTicket from './pages/BuyTicket/BuyTicket';
 import Success from './pages/BuyTicket/Success';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function App() {
     return (
-        <div className="App">
-            <BrowserRouter>
-                <Header></Header>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path='/tour' element={<TripList />}></Route>
-                    <Route path='/contact' element={<Contact />}></Route>
-                    <Route path='/about' element={<About />}></Route>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path='/user' element={<Profile />}></Route>
-                    <Route path='/historyTicket' element={<HistoryTicket />}></Route>
-                    <Route path='/password' element={<ChangePassword />}></Route>
-                    <Route path='/buyTicket' element={<BuyTicket />}></Route>
-                    <Route path='/buyTicketSuccess' element={<Success />}></Route>
-                </Routes>
-            </BrowserRouter>
-            <Footer></Footer>
-        </div>
+        <PayPalScriptProvider
+            options={{
+                "client-id":
+                    "AddU57tauCNjWXZ0ps1h-1V9gQxTBCkqxthJMK-GEDqMu-DGOInDrugVNAd69Qtcbeqb-_aPHzXe48u-",
+            }}
+        >
+            <div className="App">
+                <BrowserRouter>
+                    <Header></Header>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path='/tour' element={<TripList />}></Route>
+                        <Route path='/contact' element={<Contact />}></Route>
+                        <Route path='/about' element={<About />}></Route>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path='/user' element={<Profile />}></Route>
+                        <Route path='/historyTicket' element={<HistoryTicket />}></Route>
+                        <Route path='/password' element={<ChangePassword />}></Route>
+                        <Route path='/buyTicket' element={<BuyTicket />}></Route>
+                        <Route path='/buyTicketSuccess' element={<Success />}></Route>
+                    </Routes>
+                </BrowserRouter>
+                <Footer></Footer>
+            </div>
+        </PayPalScriptProvider>
     );
 }
 

@@ -4,10 +4,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import React, { useState, useEffect } from 'react'
 
 export default function MuiDatePicker(props) {
+    const today = new Date();
     const [value, setValue] = useState(null);
     const handleChange = (e) => {
         const dateFormat = e.getFullYear() + "-" + ((e.getMonth() + 1).toString().padStart(2, "0")) + "-" + e.getDate() + " 00:00:00.0"
         props.parentCallback(dateFormat);
+    }
+
+    const getToday = date => {
+        return ((date.getMonth() + 1).toString().padStart(2, "0")) + "/" + date.getDate() + "/" + date.getFullYear();
     }
 
     return (
@@ -17,6 +22,7 @@ export default function MuiDatePicker(props) {
                     label="Chọn ngày"
                     inputFormat="DD/MM/YYYY"
                     labelFormat="DD/MM/YYYY"
+                    // minDate={getToday(today)}
                     value={value}
                     onChange={(newValue) => {
                         handleChange(new Date(newValue.$d))

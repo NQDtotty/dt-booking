@@ -42,7 +42,7 @@ export default function Success() {
             <div className='row'>
                 <div className='col-12'>
                     <h1 className='mt-4 text-center text-success'>
-                        Mua vé thành công&nbsp;
+                        {message}&nbsp;
                         <i className="fas fa-check-circle"></i>
                     </h1>
                 </div>
