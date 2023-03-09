@@ -25,7 +25,8 @@ const PaypalCheckoutButton = (props) => {
         alert(error);
     }
     const convertPrice = (price) => {
-        const changePrice = Math.floor(parseInt(price) / 24);
+        const realPrice = price.split(".000d");
+        const changePrice = Math.floor(parseInt(realPrice[0]) / 24);
         return changePrice;
     };
     return (
@@ -42,9 +43,9 @@ const PaypalCheckoutButton = (props) => {
                     return actions.order.create({
                         purchase_units: [
                             {
-                                description: "Chuyến đi Đà Lạt",
+                                description: `${props.trip.from} - ${props.trip.arrival}`,
                                 amount: {
-                                    value: 20,
+                                    value: convertPrice(props.trip.fare),
                                 },
                             },
                         ],

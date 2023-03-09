@@ -240,6 +240,7 @@ function ConfirmInfor() {
 }
 
 function Payment() {
+    const trip = JSON.parse(sessionStorage.getItem("trip"));
     return (
         <div className='container'>
             <div className='row'>
@@ -249,7 +250,7 @@ function Payment() {
                 </div>
             </div>
             <div className='row'>
-                <PaypalCheckoutButton></PaypalCheckoutButton>
+                <PaypalCheckoutButton trip={trip}></PaypalCheckoutButton>
             </div>
         </div>
     )

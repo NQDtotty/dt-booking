@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 
 export default function Success() {
     const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")));
@@ -7,6 +8,12 @@ export default function Success() {
     const [message, setMessage] = useState("");
     const [seat, setSeat] = useState("");
     const navigate = useNavigate();
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'emp-data',
+        onAfterPrint: () => alert('In vé thành công!!')
+    })
 
     const handleDate = date => {
         var tempDate = new Date(date);
@@ -47,7 +54,7 @@ export default function Success() {
                     </h1>
                 </div>
             </div>
-            <div className='row'>
+            <div className='row' ref={componentRef}>
                 <div className='col-12 col-sm-3'></div>
                 <div className='col-12 col-sm-6'>
                     <table className='table'>
@@ -90,6 +97,9 @@ export default function Success() {
             <div className='row mb-4'>
                 <button className='btn btn-danger' onClick={handleBackToHome}>
                     Trở về trang chủ
+                </button>
+                <button className='btn btn-warning' onClick={handlePrint}>
+                    In vé
                 </button>
             </div>
         </div>
