@@ -1,37 +1,42 @@
 import React, { useState } from 'react'
+import { json } from 'react-router-dom/dist';
 import './HistoryTicket.css';
 import "./Popup.css";
-
-function LoadData() {
-    fetch("http://localhost:8080/ticket/getListTicketByemail?email=Bao@gmail.com")
-        .then(response => response.json())
-        .then(data => {
-            sessionStorage.setItem("listticket", JSON.stringify(data));
-        });
-}
+ 
 
 export default function HistoryTicket() {
     const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")));
-    console.log(user)
-    console.log(user.email)
+    console.log('My User: '+JSON.stringify(user))
+    console.log(user.userId)
     //Load data base:
-    fetch("http://localhost:8080/ticket/getListTicketByemail?email=Bao@gmail.com")
+    fetch("http://localhost:8080/ticket/getListTicketByUserId?userId="+user.userId,{
+        method: "post",
+        body: JSON.stringify({}),
+        headers: { "Content-Type": "application/json" },
+    })
         .then(response => response.json())
         .then(data => {
+            console.log(JSON.stringify(data))
             sessionStorage.setItem("listticket", JSON.stringify(data));
         });
     var listticket = useState(JSON.parse(sessionStorage.getItem("listticket")))[0];
+    if (listticket==null){
+        listticket =[];
+    }
     console.log(listticket)
 
 
     const handleSubmit = e => {
         e.preventDefault();
         if (window.confirm('Lưu ý khi hủy vé Quý Khách sẽ chịu 10% phí đã được thanh toán trước để Hủy vé')) {
-            var id = JSON.stringify(e.target.id).toString().replaceAll('"', '')
-            var url = "http://localhost:8080/ticket/deleteticket?ticketId=" + JSON.stringify(e.target.id).toString().replaceAll('"', '')
-            fetch("http://localhost:8080/ticket/deleteticket?" + new URLSearchParams({
-                ticketId: id,
-            }))
+            var id = e.target.id
+            var url = "http://localhost:8080/ticket/deleteTicket?ticketId="+id
+            console.log('this is my url: '+url)
+            fetch(url,{
+                method: "post",
+                body: JSON.stringify({}),
+                headers: { "Content-Type": "application/json" },
+            })
                 .then(response => {
                     console.log(response)
                 })
@@ -45,12 +50,20 @@ export default function HistoryTicket() {
             delay(3000).then(() => {
                 window.open(window.location.href, "_self")
             });
-            fetch("http://localhost:8080/ticket/getListTicketByemail?email=Bao@gmail.com")
-                .then(response => response.json())
-                .then(data => {
-                    sessionStorage.setItem("listticket", JSON.stringify(data));
-                });
+            fetch("http://localhost:8080/ticket/getListTicketByUserId?userId="+user.userId,{
+                method: "post",
+                body: JSON.stringify({}),
+                headers: { "Content-Type": "application/json" },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(JSON.stringify(data))
+                sessionStorage.setItem("listticket", JSON.stringify(data));
+        });
             listticket = JSON.parse(sessionStorage.getItem("listticket"))[0];
+            if (listticket==null){
+                listticket =[];
+            }
             this.render()
             return (
                 <div className='container history'>
